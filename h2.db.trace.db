@@ -1,0 +1,30 @@
+2021-04-19 11:44:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Неверное количество столбцов
+Column count does not match; SQL statement:
+ INSERT INTO products (title, price) VALUES ('IPhone', 100000), ('Samsung', 20000), ('LG', 30000), ('1+', 50000), ('Nexus', 25000),   COMMIT; [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:54)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:59)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.engine.query.spi.NativeSQLQueryPlan.performExecuteUpdate(NativeSQLQueryPlan.java:107)
+	at org.hibernate.internal.SessionImpl.executeNativeUpdate(SessionImpl.java:1509)
+	at org.hibernate.query.internal.NativeQueryImpl.doExecuteUpdate(NativeQueryImpl.java:298)
+	at org.hibernate.query.internal.AbstractProducedQuery.executeUpdate(AbstractProducedQuery.java:1672)
+	at ru.gb.hibernate.MainApp.prepareData(MainApp.java:42)
+	at ru.gb.hibernate.MainApp.main(MainApp.java:24)
+2021-04-19 11:47:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL " INSERT INTO PRODUCTS (TITLE, PRICE) VALUES ('IPhone', 100000), ('Samsung', 20000), ('LG', 30000), ('1+', 50000), ('Nexus', 25000)   COMMIT[*];"
+Syntax error in SQL statement " INSERT INTO PRODUCTS (TITLE, PRICE) VALUES ('IPhone', 100000), ('Samsung', 20000), ('LG', 30000), ('1+', 50000), ('Nexus', 25000)   COMMIT[*];"; SQL statement:
+ INSERT INTO products (title, price) VALUES ('IPhone', 100000), ('Samsung', 20000), ('LG', 30000), ('1+', 50000), ('Nexus', 25000)   COMMIT; [42000-200]
